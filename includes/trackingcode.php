@@ -15,7 +15,7 @@ function wow_wowanalytics_output_trackingcode(){
     // get the options
     $options = get_option('wow_wowanalytics_options');
     $clientid_text = trim($options['clientid_text']);
-    $trackuser_bool = $options['trackuser_bool'] ? 'true' : 'false';
+    $trackuser_bool = $options['trackuser_bool'] ? 'false' : 'true';
 ?>
 <!-- WOW Tracking Code Start -->
 <script type='text/javascript' src='//t.wowanalytics.co.uk/Scripts/tracking.js'></script>
