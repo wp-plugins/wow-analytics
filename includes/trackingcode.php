@@ -24,7 +24,6 @@ function wow_wowanalytics_output_trackingcode(){
 try {
 	// Set the tracking url
 	var tracker = new wowTracking.getTracker('<?php echo $clientid_text; ?>');
-	tracker.trackPageView();
 	<?php
 	if(!$trackuser_bool){?>
 	tracker.disableUserTracking();
@@ -33,6 +32,7 @@ try {
 	if($trackdownloads_bool){?>
 	tracker.enableDownloadTracking();
 	<?php }	?>
+	tracker.trackPageView();
 	
 } catch (err) { }        
 </script>
