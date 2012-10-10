@@ -3,7 +3,7 @@
 Plugin Name: WOW Analytics Tracker
 Plugin URI: http://wordpress.org/extend/plugins/wow-analytics/
 Description: Inserts the WOW Analytics tracker into the footer of Wordpress pages
-Version: 1.0.2
+Version: 1.1.0
 Author: WOW Analytics
 Author URI: http://www.wowanalytics.co.uk
 */
@@ -30,6 +30,8 @@ if ( is_admin() ){
 	require_once(dirname(__FILE__).'/includes/admin.php');
 }
 
+$wowVersion = '1.1.0';
+
 /* Runs when plugin is activated */
 register_activation_hook(__FILE__, 'wowanalytics_install'); 
 
@@ -47,13 +49,47 @@ function wowanalytics_install() {
         deactivate_plugins( basename( __FILE__ ) ); // Deactivate our plugin
         exit('This plugin requires WordPress 3.0 or greater');
     }
-    
-    $wowOptions = array(
-        'clientid_text' => '',
-        'trackuser_bool' => false
-        );
-        
-    add_option('wow_wowanalytics_options', $wowOptions);
+	// get the previous version if avaliable
+    $wowOptions = get_option('wow_wowanalytics_options');
+	
+	// is this a clean install
+	if(!$wowOptions)
+	{
+		// this is a clean install so we need to create the default options
+		$wowOptions = array(
+			'clientid_text' => '',
+			'trackuser_bool' => false,
+			'track_downloads_bool' => true,
+			'track_download_extensions' => '',
+			'version' => $wowVersion
+			);
+			
+		add_option('wow_wowanalytics_options', $wowOptions);
+	}
+	else
+	{
+		// this is an upgrade
+		if (array_key_exists('version', $wowOptions)) 
+		{
+			$prev_version = $options['version'];
+		}
+		else
+		{
+			$prev_version = '1.0.2';
+		}
+		
+		// this is a switch to plan for future versions
+		$upgrade = version_compare( $prev_version,'1.1.0','<' );
+
+		if($upgrade)
+		{
+			array_push($wowOptions, 'track_downloads_bool', true);
+			array_push($wowOptions, 'track_download_extensions', '');
+			array_push($wowOptions, 'version', $wowVersion);
+			update_option( wow_wowanalytics_options, $wowOptions ) ;
+		}
+		
+	}   
     
 }
 

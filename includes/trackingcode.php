@@ -15,15 +15,25 @@ function wow_wowanalytics_output_trackingcode(){
     // get the options
     $options = get_option('wow_wowanalytics_options');
     $clientid_text = trim($options['clientid_text']);
-    $trackuser_bool = $options['trackuser_bool'] ? 'false' : 'true';
+    $trackuser_bool = $options['trackuser_bool'];
+	$trackdownloads_bool = $options['track_downloads_bool'];
 ?>
 <!-- WOW Tracking Code Start -->
-<script type='text/javascript' src='//t.wowanalytics.co.uk/Scripts/tracking.js'></script>
+<script type='text/javascript' src='//t.wowanalytics.co.uk/Scripts/tracker.js'></script>
 <script type='text/javascript'>
 try {
-    wowTracker.ClientId = '<?php echo $clientid_text; ?>';
-    wowTracker.DisableUserTracking = <?php echo $trackuser_bool; ?>;
-    wowTracker.InitialiseTracker();
+	// Set the tracking url
+	var tracker = new wowTracking.getTracker('<?php echo $clientid_text; ?>');
+	tracker.trackPageView();
+	<?php
+	if(!$trackuser_bool){?>
+	tracker.disableUserTracking();
+	<?php 
+	}
+	if($trackdownloads_bool){?>
+	tracker.enableDownloadTracking();
+	<?php }	?>
+	
 } catch (err) { }        
 </script>
 <!-- WOW Tracking Code End -->

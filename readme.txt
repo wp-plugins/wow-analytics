@@ -1,10 +1,10 @@
-=== WOW Analytics ===
+﻿=== WOW Analytics ===
 Contributors: wowanalytics
 Donate link: 
 Tags: leads, tracking
 Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 1.0.2
+Tested up to: 3.4
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,9 @@ None available
 None available
 
 == Changelog ==
+
+= 1.1.0 =
+* Updated to use the new tracking code
 
 = 1.0.2 =
 * Fix for tracking of users.

@@ -51,8 +51,16 @@ function wow_wowanalytics_admin_init(){
         'wow_wowanalytics',
         'wow_wowanalytics_main'
         );
-        
-     register_setting(
+    
+	add_settings_field(
+        'wow_wowanalytics_trackdownloads_bool',
+        'Do you want to track downloads',
+        'wow_wowanalytics_setting_trackdownloads',
+        'wow_wowanalytics',
+        'wow_wowanalytics_main'
+        );
+		
+    register_setting(
         'wow_wowanalytics_options',
         'wow_wowanalytics_options',
         'wow_wowanalytics_validate_options'
@@ -70,7 +78,7 @@ function wow_wowanalytics_setting_clientid() {
     $options = get_option('wow_wowanalytics_options');
     $clientid_string = $options['clientid_text'];
     // echo the field
-    echo "<input id='clientid_string' name='wow_wowanalytics_options[clientid_text]' type='text' value='{$clientid_string}' />";
+    echo "<input id='clientid_string' name='wow_wowanalytics_options[clientid_text]' size='50' type='text' value='{$clientid_string}' />";
 }
 
 function wow_wowanalytics_setting_trackuser() {
@@ -81,11 +89,19 @@ function wow_wowanalytics_setting_trackuser() {
     echo '<input id="trackuser_bool" name="wow_wowanalytics_options[trackuser_bool]" type="checkbox" ' . checked( 1, $trackuser_bool, false ) . '" />';
 }
 
+function wow_wowanalytics_setting_trackdownloads() {
+    // get option 'text_clientid' value from the database
+    $options = get_option('wow_wowanalytics_options');
+    $track_downloads_bool = $options['track_downloads_bool'];
+    // echo the field
+    echo '<input id="track_downloads_bool" name="wow_wowanalytics_options[track_downloads_bool]" type="checkbox" ' . checked( 1, $track_downloads_bool, false ) . '" />';
+}
+
 function wow_wowanalytics_validate_options($input){
     $valid = array();
     
     $valid['trackuser_bool'] = array_key_exists('trackuser_bool', $input);
-    
+    $valid['track_downloads_bool'] = array_key_exists('track_downloads_bool', $input);
     $valid['clientid_text'] = $input['clientid_text'];
     
     return $valid;
