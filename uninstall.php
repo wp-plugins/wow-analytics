@@ -5,5 +5,3 @@ if(!defined('WP_UNINSTALL_PLUGIN'))
 	
 // Delete option from options table
 delete_option('wow_wowanalytics_options');
-
-?>

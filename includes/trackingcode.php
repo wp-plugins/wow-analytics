@@ -17,26 +17,35 @@ function wow_wowanalytics_output_trackingcode(){
     $clientid_text = trim($options['clientid_text']);
     $trackuser_bool = $options['trackuser_bool'];
 	$trackdownloads_bool = $options['track_downloads_bool'];
+    $track_download_extensions_text = $options['track_download_extensions'];
 ?>
-<!-- WOW Tracking Code Start -->
-<script type='text/javascript' src='//t.wowanalytics.co.uk/Scripts/tracker.js'></script>
-<script type='text/javascript'>
-try {
-	// Set the tracking url
-	var tracker = new wowTracking.getTracker('<?php echo $clientid_text; ?>');
-	<?php
-	if(!$trackuser_bool){?>
-	tracker.disableUserTracking();
-	<?php 
-	}
-	if($trackdownloads_bool){?>
-	tracker.enableDownloadTracking();
-	<?php }	?>
-	tracker.trackPageView();
-	
-} catch (err) { }        
-</script>
-<!-- WOW Tracking Code End -->
+    <!-- WOW Async Tracking Code Start -->
+    <script type='text/javascript'>
+        var _wow = _wow || [];
+        (function () {
+            try{
+                _wow.push(['setClientId', '<?php echo $clientid_text; ?>']);
+                <?php
+	            if(!$trackuser_bool){?>
+                _wow.push(['disableUserTracking']);
+                <?php
+                }
+                if($trackdownloads_bool){?>
+                _wow.push(['enableDownloadTracking']);
+                <?php }	?>
+                <?php
+                if($track_download_extensions_text != ''){?>
+                _wow.push(['setDownloadExtensions', '<?php echo $track_download_extensions_text ?>']);
+                <?php } ?>
+                _wow.push(['trackPageView']);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.type = 'text/javascript'; g.defer = true; g.async = true;
+                g.src = '//t.wowanalytics.co.uk/Scripts/tracker.js';
+                s.parentNode.insertBefore(g, s);
+            }catch(err){}})();
+    </script>
+    <!-- WOW Async Tracking Code End -->
+
 <?php
 }
 ?>
