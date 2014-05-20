@@ -2,9 +2,9 @@
 Contributors: wowanalytics
 Donate link: 
 Tags: leads, tracking
-Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 1.2.0
+Requires at least: 3.9
+Tested up to 3.9.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ None available
 
 == Changelog ==
 
+= 2.0 =
+* Improved the setup of the plugin, you can now use your WOW login details to set the client id
+
 = 1.2.0 =
 * Updated to use the new async tracking code
 
@@ -49,6 +52,9 @@ None available
 * First official release
 
 == Upgrade Notice ==
+
+= 2.0 =
+Made it easier to setup when you are unsure of your client id
 
 = 1.0 =
 Offical release version.

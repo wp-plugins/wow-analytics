@@ -1,5 +1,5 @@
 <?php 
-// If uninstall is not callednfrom WordPress exit
+// If uninstall is not calledfrom WordPress exit
 if(!defined('WP_UNINSTALL_PLUGIN'))
 	exit();
 	

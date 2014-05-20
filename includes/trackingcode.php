@@ -17,10 +17,9 @@ function wow_wowanalytics_output_trackingcode(){
     $clientid_text = trim($options['clientid_text']);
     $trackuser_bool = $options['trackuser_bool'];
 	$trackdownloads_bool = $options['track_downloads_bool'];
-    $track_download_extensions_text = $options['track_download_extensions'];
 ?>
-    <!-- WOW Async Tracking Code Start -->
-    <script type='text/javascript'>
+    <!-- WOW Async for Wordpress Tracking Code Start -->
+    <script data-cfasync='false' type='text/javascript'>
         var _wow = _wow || [];
         (function () {
             try{
@@ -32,10 +31,6 @@ function wow_wowanalytics_output_trackingcode(){
                 }
                 if($trackdownloads_bool){?>
                 _wow.push(['enableDownloadTracking']);
-                <?php }	?>
-                <?php
-                if($track_download_extensions_text != ''){?>
-                _wow.push(['setDownloadExtensions', '<?php echo $track_download_extensions_text ?>']);
                 <?php } ?>
                 _wow.push(['trackPageView']);
                 var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
