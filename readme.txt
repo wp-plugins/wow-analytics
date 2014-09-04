@@ -1,6 +1,5 @@
 ﻿=== WOW Analytics ===
 Contributors: wowanalytics
-Donate link: 
 Tags: leads, tracking
 Requires at least: 3.9
 Tested up to: 4.0
