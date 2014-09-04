@@ -3,7 +3,7 @@ Contributors: wowanalytics
 Donate link: 
 Tags: leads, tracking
 Requires at least: 3.9
-Tested up to 4
+Tested up to: 4.0
 Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,4 +57,4 @@ None available
 Made it easier to setup when you are unsure of your client id
 
 = 1.0 =
-Offical release version.
+First release version.
