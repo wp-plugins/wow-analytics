@@ -31,7 +31,15 @@ WOW Analytics will give your business an untold number of new sales opportunitie
 None available
 
 == Screenshots ==
-None available
+
+1. Hover over the Setting menu on the left and you should see “WOW Analytics” click on this menu item 
+
+2. WOW Analytics settings 
+
+3. From the Admin menu at the top of WOW select “Embed Tracking” option under “Client Admin” , copy your client id
+
+4. In Wordpress and enter the Client Id in the relevant section of the WOW Settings 
+
 
 == Changelog ==
 
