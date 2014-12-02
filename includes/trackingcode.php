@@ -9,6 +9,15 @@ function wow_wowanalytics_should_output_trackingcode(){
     if (!current_user_can('manage_options') && $has_clientid){
         wow_wowanalytics_output_trackingcode();
     }
+    else{
+        wow_wowanalytics_output_trackingcode_noclient();
+    }
+}
+
+function wow_wowanalytics_output_trackingcode_noclient(){
+    ?>
+    <!-- WOW Async for Wordpress Tracking Code No Client Set -->
+    <?php
 }
 
 function wow_wowanalytics_output_trackingcode(){

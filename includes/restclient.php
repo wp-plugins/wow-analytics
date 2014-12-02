@@ -18,10 +18,11 @@ class RestClient implements Iterator, ArrayAccess {
     public $headers; // Parsed reponse header object.
     public $info; // Response info object.
     public $error; // Response error string.
+    public $url; // the url to call 
 
     // Populated as-needed.
     public $decoded_response; // Decoded response body. 
-    private $iterator_positon;
+    //private $iterator_positon;
 
     public function __construct($options=array()){
         $default_options = array(
@@ -193,7 +194,7 @@ class RestClient implements Iterator, ArrayAccess {
 
     public function parse_response($response){
         $headers = array();
-        $http_ver = strtok($response, "\n");
+        //$http_ver = strtok($response, "\n");
 
         while($line = strtok("\n")){
             if(strlen(trim($line)) == 0) break;

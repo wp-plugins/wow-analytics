@@ -3,7 +3,7 @@ Contributors: wowanalytics
 Tags: leads, tracking
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 2.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ None available
 None available
 
 == Changelog ==
+
+= 2.0.1 =
+* Added code to insert a comment if the client id has not been set
 
 = 2.0 =
 * Improved the setup of the plugin, you can now use your WOW login details to set the client id
