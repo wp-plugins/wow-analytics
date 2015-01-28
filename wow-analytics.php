@@ -20,10 +20,11 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
-define('WOWANALYTICS_VERSION', '2.0');
+define('WOWANALYTICS_VERSION', '2.0.2');
 
 require_once(dirname(__FILE__).'/includes/trackingcode.php');
 require_once(dirname(__FILE__).'/install.php');
+
 
 // only include the admin functionality if the user is an admin
 if ( is_admin() ){

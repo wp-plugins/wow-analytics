@@ -2,8 +2,8 @@
 Contributors: wowanalytics
 Tags: leads, tracking
 Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 2.0.1
+Tested up to: 4.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,9 @@ None available
 
 
 == Changelog ==
+
+= 2.0.2 =
+* Added code to insert a comment if the user is an admin user and output the plugin version
 
 = 2.0.1 =
 * Added code to insert a comment if the client id has not been set

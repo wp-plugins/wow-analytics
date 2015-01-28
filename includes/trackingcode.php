@@ -10,13 +10,28 @@ function wow_wowanalytics_should_output_trackingcode(){
         wow_wowanalytics_output_trackingcode();
     }
     else{
-        wow_wowanalytics_output_trackingcode_noclient();
+        if(!current_user_can('manage_options')){
+            wow_wowanalytics_output_trackingcode_noclient();
+        }
+        else{
+            wow_wowanalytics_output_trackingcode_admin();
+        }
     }
 }
 
+
+function wow_wowanalytics_output_trackingcode_admin(){
+    $wowVersion =  constant( 'WOWANALYTICS_VERSION' );
+    ?>
+    <!-- WOW Async for Wordpress Tracking Code Admin User -->
+    <!-- WOW Plugin Version <?php echo $wowVersion; ?> -->
+<?php
+}
 function wow_wowanalytics_output_trackingcode_noclient(){
+    $wowVersion =  constant( 'WOWANALYTICS_VERSION' );
     ?>
     <!-- WOW Async for Wordpress Tracking Code No Client Set -->
+    <!-- WOW Plugin Version <?php echo $wowVersion; ?> -->
     <?php
 }
 
@@ -26,8 +41,10 @@ function wow_wowanalytics_output_trackingcode(){
     $clientid_text = trim($options['clientid_text']);
     $trackuser_bool = $options['trackuser_bool'];
 	$trackdownloads_bool = $options['track_downloads_bool'];
+    $wowVersion =  constant( 'WOWANALYTICS_VERSION' );
 ?>
     <!-- WOW Async for Wordpress Tracking Code Start -->
+    <!-- WOW Plugin Version <?php echo $wowVersion; ?> -->
     <script data-cfasync='false' type='text/javascript'>
         var _wow = _wow || [];
         (function () {
