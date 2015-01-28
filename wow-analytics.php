@@ -3,7 +3,7 @@
 Plugin Name: WOW Analytics Tracker
 Plugin URI: http://wordpress.org/extend/plugins/wow-analytics/
 Description: Inserts the WOW Analytics tracker into the footer of Wordpress pages
-Version: 2.0.1
+Version: 2.0.2
 Author: WOW Analytics
 Author URI: http://www.wowanalytics.co.uk
 */
